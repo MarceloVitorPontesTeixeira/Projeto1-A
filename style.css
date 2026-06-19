@@ -1,66 +1,191 @@
-/* RESET */
+/* ==========================================================================
+   Configurações Globais e Reset
+   ========================================================================== */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-/* FUNDO E FONTE */
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #0b1f14;
-  color: #e6f4ea;
-  text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #0d0f12; 
+    color: #e2e8f0; 
+    line-height: 1.7;
 }
 
-/* HEADER */
+/* ==========================================================================
+   Cabeçalho (Header)
+   ========================================================================== */
 header {
-  background-color: #145a32;
-  padding: 30px 15px;
+    background-color: #050708; 
+    border-bottom: 1px solid #1a231f; 
+    text-align: center;
+    padding: 5rem 1rem; 
 }
 
-/* TÍTULO MAIOR */
-header h1 {
-  font-size: 34px;
-  font-weight: bold;
+h1 {
+    color: #1b4d3e; 
+    font-size: 2.8rem; 
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-/* CONTEÚDO */
-main {
-  max-width: 1000px;
-  margin: 30px auto;
-  padding: 20px;
+/* ==========================================================================
+   Layout Geral
+   ========================================================================== */
+.container {
+    max-width: 750px; 
+    margin: 3rem auto;
+    padding: 0 1.5rem;
 }
 
-/* TEXTO */
+section {
+    background-color: #13171a; 
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    border: 1px solid #1c2421; 
+}
+
+h2 {
+    color: #246b54; 
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+    font-weight: 600;
+}
+
 p {
-  font-size: 18px;
-  margin-bottom: 20px;
+    font-size: 1.1rem; /* Tamanho médio solicitado */
+    color: #b2bbbd; 
+    margin-bottom: 1.5rem;
 }
 
-/* GALERIA */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 15px;
+strong {
+    color: #ffffff;
 }
 
-/* IMAGENS */
-.gallery img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 10px;
-  transition: 0.3s;
+/* ==========================================================================
+   Imagens
+   ========================================================================== */
+.image-container {
+    margin: 2rem 0 0 0;
 }
 
-.gallery img:hover {
-  transform: scale(1.03);
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    filter: grayscale(20%);
+    transition: filter 0.3s ease;
 }
 
-/* FOOTER */
+img:hover {
+    filter: grayscale(0%);
+}
+
+.caption {
+    font-size: 0.95rem;
+    color: #627275; 
+    margin-top: 0.75rem;
+    text-align: left;
+}
+
+/* ==========================================================================
+   Botão de Interação
+   ========================================================================== */
+.interacao-container {
+    text-align: center;
+    margin: 2.5rem 0;
+}
+
+#btn-interacao {
+    padding: 14px 32px;
+    font-size: 1.1rem;
+    background-color: #1b4d3e; 
+    color: #ffffff;
+    border: none;
+    border-radius: 4px; 
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+#btn-interacao:hover {
+    background-color: #246b54; 
+}
+
+#btn-interacao:active {
+    transform: scale(0.98);
+}
+
+/* ==========================================================================
+   Janela Flutuante (Modal Dinâmico)
+   ========================================================================== */
+#modal-informativo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-conteudo {
+    background-color: #13171a;
+    border: 1px solid #246b54;
+    color: #e2e8f0;
+    padding: 3rem;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    text-align: left;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: surgindo 0.25s ease-out;
+}
+
+.modal-conteudo h3 {
+    font-size: 1.6rem;
+    color: #246b54;
+    margin-bottom: 1.2rem;
+}
+
+#btn-fechar {
+    margin-top: 2rem;
+    padding: 10px 24px;
+    background-color: transparent;
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+#btn-fechar:hover {
+    background-color: #e74c3c;
+    color: white;
+}
+
+@keyframes surgindo {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* ==========================================================================
+   Rodapé (Footer)
+   ========================================================================== */
 footer {
-  margin-top: 40px;
-  padding: 15px;
-  background-color: #145a32;
+    text-align: center;
+    padding: 4rem 1rem;
+    background-color: #050708;
+    color: #4b5563;
+    font-size: 0.95rem;
+    border-top: 1px solid #1a231f;
 }
